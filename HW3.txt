@@ -1,0 +1,66 @@
+3.1
+
+(All of these answers are based on the Linked List implementatiion of the Symbol table)
+(Remember if you test my program that it's reading command line arguments to define minLength)
+
+6. put is called once for every single word and then once more to add the max to the ST (or 1W+1=puts).
+Get is called 2 times for every distinct word plus one (to find the max) plus
+the difference between two times the total words and the distinct words (the contains method in ST.java calls get
+unless the key is null which it never would be in this example and then if the condition is passed and the ST already contains
+the key, get is called again to iterate the value) and then once more for printing the value (or 2(D+1)+(2W-D)+1=gets)
+You can review my code to see where I inserted the incrementations of get and put and for more info on why I put them where
+I did, but I ran experiments for lengths of 10, 8, and 1, and they corroborate my formulas. Here are the outputs:
+
+    1: distinct = 19100 words = 135690 gets = 290483 puts = 135691
+    8: distinct = 8928  words = 17512  gets = 43955  puts = 17513
+    10:distinct = 4113  words = 6309   gets = 16734  puts = 6310
+
+note: this answer is based on the original program, not the code I added to answer #19
+
+8. 'Monseigneur', used 45 times
+
+9. Note: the book explicitly stated to keep track of the LAST call to put(), so this is the last word of the given minimum lengths,
+not the last distinct word of the given minimum lengths:
+
+    1: last word is 'known."', 135689 processed before
+    8: last word is 'faltering', 17511 processed before
+    10: last word is 'disfigurement', 6308 processed before
+
+19. Here is the raw output from my modified FrequencyCounter class. Go ahead and check out my class
+if you want to see how I implemented it. It works for any minLength (unless it's way too big and there aren't many keys
+of that length) and outputs consistent results. Please do note what I said in the program; the implementation that yielded
+this output is not perfect in that it doesn't account for the fact that there may be multiple keys with the same value;
+the only reason I did it this way is because I kept running out of memory. I have commented out lines of code that would
+work for all situations (including those where minLength is very long and you have several long words used the same number
+of times), but once I dipped beneath a minLength of 10, the program kept crashing due to a lack of memory. However, the
+existing implementation works well for cases where the minlength is small and the table is enormous.
+
+word            |number          |
+the             |7349            |
+and             |4681            |
+of              |3949            |
+to              |3386            |
+a               |2769            |
+in              |2390            |
+his             |1911            |
+was             |1672            |
+that            |1650            |
+I               |1448            |
+
+3.2
+
+1. Image named 3.2.1 in the repository
+
+9. Images named 3.2.1n2n3n4, 3.2.1n5, and 3.2.1n6. For n=5 and n=6, I drew every shape but not the reflection of every shape
+So every image I drew could also be reflected to its mirror image.
+
+Your Excercizes you listed in the email:
+
+3. In the image named number3
+
+4. Minimum number of nodes of depth N is N+1. If a given tree has a height of zero, for instance, then it is only
+the root, so 0+1 equals 1. If it has depth 3, then it has to have at least three downward branches, so that's 3+1=4
+
+5. Maximum number of nodes of depth N is 2^(0)+2^(1)+2^(2)...+2^(N), which simplifies to (2^(N+1))-1 For instance, if it
+was depth N=0, we would have just the root node, and (2^(0+1))-1=1. If was N=3, then the first row has 1 node, the second
+has 2, the third has 4, and the fourth has 8, which equals 15; (2^(3+1))-1=15.
